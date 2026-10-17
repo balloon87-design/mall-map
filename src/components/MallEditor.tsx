@@ -1,3 +1,4 @@
+import defaultStores from "../mall-stores-default.json";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import { duplicateBox, FLOORS, IMG_H, IMG_W, seedBoxes, type Box } from "@/lib/mall-seed";
@@ -105,11 +106,11 @@ export function MallEditor() {
         }
       } else {
         // Fresh installations already get enlarged defaults from seedBoxes().
-        setBoxes(seedBoxes());
+        setBoxes(defaultStores as Box[]);
         localStorage.setItem(FONT_MIGRATION_KEY, "done");
       }
     } catch {
-      setBoxes(seedBoxes());
+      setBoxes(defaultStores as Box[]);
     }
     setLoaded(true);
   }, []);
@@ -518,7 +519,7 @@ export function MallEditor() {
             <div style={{ width: IMG_W * s, height: IMG_H * s, position: "relative", flex: "none" }}>
             <div style={{ position: "absolute", left: 0, top: 0, width: IMG_W, height: IMG_H, transform: `scale(${s})`, transformOrigin: "0 0", overflow: "hidden" }}>
               {loaded && (
-                <img src="/mall-map-clean.png" alt="Mall map" draggable={false}
+                <img src={`${import.meta.env.BASE_URL}mall-map-clean.png`} alt="Mall map" draggable={false}
                   style={{ position: "absolute", left: 0, top: 0, width: IMG_W, height: IMG_H, maxWidth: "none", userSelect: "none", pointerEvents: "none" }} />
               )}
               {boxes.map((b) => {
