@@ -3,8 +3,8 @@
     "id": "f1-0",
     "floor": 1,
     "position": {
-      "x": 1202,
-      "y": 417
+      "x": 1233.2848111780015,
+      "y": 383.30864581873686
     },
     "width": 58,
     "height": 18,
@@ -14,67 +14,39 @@
     "highlightColor": null
   },
   {
-    "id": "f1-1",
-    "floor": 1,
-    "position": {
-      "x": 1271,
-      "y": 385
-    },
-    "width": 35,
-    "height": 18,
-    "fontSize": 12.6,
-    "rotation": 0,
-    "text": "מיני",
-    "highlightColor": null
-  },
-  {
     "id": "f1-2",
     "floor": 1,
     "position": {
-      "x": 1208,
-      "y": 444
+      "x": 1200.0639289505236,
+      "y": 422.98757644863383
     },
     "width": 35,
     "height": 18,
     "fontSize": 11.5,
-    "rotation": -50,
+    "rotation": 3,
     "text": "ריבר",
-    "highlightColor": null
-  },
-  {
-    "id": "f1-3",
-    "floor": 1,
-    "position": {
-      "x": 1347,
-      "y": 405
-    },
-    "width": 37,
-    "height": 18,
-    "fontSize": 12.6,
-    "rotation": 0,
-    "text": "בובע",
     "highlightColor": null
   },
   {
     "id": "f1-4",
     "floor": 1,
     "position": {
-      "x": 1363,
-      "y": 449
+      "x": 1351.5689895857295,
+      "y": 451.40652923301724
     },
-    "width": 57,
-    "height": 18,
-    "fontSize": 11.5,
-    "rotation": -65,
-    "text": "פאדל בורגר",
+    "width": 34.057461715409936,
+    "height": 22.41332813444011,
+    "fontSize": 10.8,
+    "rotation": 359,
+    "text": "פאזל בורגר",
     "highlightColor": null
   },
   {
     "id": "f1-5",
     "floor": 1,
     "position": {
-      "x": 822.473160282258,
-      "y": 38.16129032258067
+      "x": 1245.4050827543977,
+      "y": 442.25099604337765
     },
     "width": 35,
     "height": 18,
@@ -87,27 +59,27 @@
     "id": "f1-6",
     "floor": 1,
     "position": {
-      "x": 1336,
-      "y": 514
+      "x": 1344.4228729709268,
+      "y": 488.12986926860395
     },
     "width": 47,
     "height": 18,
     "fontSize": 11.5,
-    "rotation": -50,
-    "text": "פיקנטי",
+    "rotation": 358,
+    "text": "פיקנסין",
     "highlightColor": null
   },
   {
     "id": "f1-7",
     "floor": 1,
     "position": {
-      "x": 1228,
-      "y": 513
+      "x": 1222.5853195533946,
+      "y": 514.8048934822018
     },
     "width": 64,
     "height": 16,
     "fontSize": 10.4,
-    "rotation": -45,
+    "rotation": 358,
     "text": "דיאנה בעיר",
     "highlightColor": null
   },
@@ -115,50 +87,22 @@
     "id": "f1-8",
     "floor": 1,
     "position": {
-      "x": 1324,
-      "y": 479
+      "x": 1316.7750212346991,
+      "y": 525.3283384532433
     },
-    "width": 64,
-    "height": 18,
-    "fontSize": 11.5,
-    "rotation": -58,
+    "width": 38.87431553394278,
+    "height": 26.420387513438545,
+    "fontSize": 11.2,
+    "rotation": 358,
     "text": "בורגר קינג",
-    "highlightColor": null
-  },
-  {
-    "id": "f1-9",
-    "floor": 1,
-    "position": {
-      "x": 1257,
-      "y": 546
-    },
-    "width": 58,
-    "height": 16,
-    "fontSize": 10.4,
-    "rotation": 0,
-    "text": "פיצה סנטור",
-    "highlightColor": null
-  },
-  {
-    "id": "f1-10",
-    "floor": 1,
-    "position": {
-      "x": 1280,
-      "y": 512
-    },
-    "width": 29,
-    "height": 18,
-    "fontSize": 11.5,
-    "rotation": 0,
-    "text": "זגא",
     "highlightColor": null
   },
   {
     "id": "f1-11",
     "floor": 1,
     "position": {
-      "x": 1136,
-      "y": 467
+      "x": 1147.0161098278422,
+      "y": 523.6544026114138
     },
     "width": 53,
     "height": 18,
@@ -171,8 +115,8 @@
     "id": "f1-12",
     "floor": 1,
     "position": {
-      "x": 1154,
-      "y": 546
+      "x": 1172.097910154269,
+      "y": 565.6716555667746
     },
     "width": 37,
     "height": 18,
@@ -185,8 +129,8 @@
     "id": "f1-13",
     "floor": 1,
     "position": {
-      "x": 1152,
-      "y": 626
+      "x": 1157.116302038946,
+      "y": 604.8039728076299
     },
     "width": 35,
     "height": 18,
@@ -199,8 +143,8 @@
     "id": "f1-14",
     "floor": 1,
     "position": {
-      "x": 1152,
-      "y": 658
+      "x": 1160.770765257834,
+      "y": 638.2657781698737
     },
     "width": 71,
     "height": 16,
@@ -213,8 +157,8 @@
     "id": "f1-15",
     "floor": 1,
     "position": {
-      "x": 1152,
-      "y": 685
+      "x": 1168.8106780212674,
+      "y": 660.1494761309276
     },
     "width": 60,
     "height": 16,
@@ -227,8 +171,8 @@
     "id": "f1-16",
     "floor": 1,
     "position": {
-      "x": 1177,
-      "y": 716
+      "x": 1178.461838820058,
+      "y": 687.4950129120397
     },
     "width": 43,
     "height": 16,
@@ -241,36 +185,36 @@
     "id": "f1-17",
     "floor": 1,
     "position": {
-      "x": 1155,
-      "y": 759
+      "x": 1154.2553128688396,
+      "y": 728.2194147829939
     },
     "width": 70,
     "height": 16,
     "fontSize": 10.4,
     "rotation": 0,
-    "text": "ז'קי מקיאג'",
+    "text": "איל מקיאג'",
     "highlightColor": null
   },
   {
     "id": "f1-18",
     "floor": 1,
     "position": {
-      "x": 1157,
-      "y": 782
+      "x": 1164.3781160342176,
+      "y": 752.3157269824089
     },
-    "width": 66,
-    "height": 16,
-    "fontSize": 10.4,
+    "width": 85.00336933572588,
+    "height": 15.269080589971006,
+    "fontSize": 10.9,
     "rotation": 0,
-    "text": "עונות מאמא",
+    "text": "מיה אינספרישן",
     "highlightColor": null
   },
   {
     "id": "f1-19",
     "floor": 1,
     "position": {
-      "x": 1152,
-      "y": 808
+      "x": 1164.4528977502416,
+      "y": 786.7209997099428
     },
     "width": 60,
     "height": 16,
@@ -283,36 +227,36 @@
     "id": "f1-20",
     "floor": 1,
     "position": {
-      "x": 1151,
-      "y": 832
+      "x": 1163.5081188786664,
+      "y": 817.4096825667108
     },
     "width": 38,
     "height": 16,
     "fontSize": 10.4,
     "rotation": 0,
-    "text": "פולגת",
+    "text": "פרפואה",
     "highlightColor": null
   },
   {
     "id": "f1-21",
     "floor": 1,
     "position": {
-      "x": 1153,
-      "y": 857
+      "x": 1022.9002261212919,
+      "y": 936.6678401883488
     },
     "width": 49,
     "height": 16,
     "fontSize": 10.4,
     "rotation": 0,
-    "text": "אינטימי",
+    "text": ".........",
     "highlightColor": null
   },
   {
     "id": "f1-22",
     "floor": 1,
     "position": {
-      "x": 1153,
-      "y": 886
+      "x": 1165.4252953923503,
+      "y": 878.691073562224
     },
     "width": 66,
     "height": 16,
@@ -339,8 +283,8 @@
     "id": "f1-24",
     "floor": 1,
     "position": {
-      "x": 1154,
-      "y": 972
+      "x": 1131.3421674453862,
+      "y": 976.385382628917
     },
     "width": 60,
     "height": 18,
@@ -353,8 +297,8 @@
     "id": "f1-25",
     "floor": 1,
     "position": {
-      "x": 1015,
-      "y": 577
+      "x": 1034.0033024200975,
+      "y": 566.0365434277076
     },
     "width": 49,
     "height": 16,
@@ -367,8 +311,8 @@
     "id": "f1-26",
     "floor": 1,
     "position": {
-      "x": 1012,
-      "y": 611
+      "x": 1027.3488392012093,
+      "y": 600.7674293799223
     },
     "width": 47,
     "height": 18,
@@ -381,8 +325,8 @@
     "id": "f1-27",
     "floor": 1,
     "position": {
-      "x": 1013,
-      "y": 651
+      "x": 1021.0398458478049,
+      "y": 631.9966641220884
     },
     "width": 41,
     "height": 18,
@@ -395,8 +339,8 @@
     "id": "f1-28",
     "floor": 1,
     "position": {
-      "x": 1013,
-      "y": 677
+      "x": 1023.2326040778919,
+      "y": 659.4584694843321
     },
     "width": 53,
     "height": 18,
@@ -409,8 +353,8 @@
     "id": "f1-29",
     "floor": 1,
     "position": {
-      "x": 1000,
-      "y": 715
+      "x": 1022.9465486181867,
+      "y": 704.9609116500877
     },
     "width": 41,
     "height": 18,
@@ -423,12 +367,12 @@
     "id": "f1-30",
     "floor": 1,
     "position": {
-      "x": 1010,
-      "y": 875
+      "x": 1030.465074324527,
+      "y": 801.1793979895334
     },
-    "width": 73,
-    "height": 16,
-    "fontSize": 10.4,
+    "width": 39.378777788722196,
+    "height": 46.69771186023306,
+    "fontSize": 11.5,
     "rotation": 0,
     "text": "טוונטי פור סבן",
     "highlightColor": null
@@ -437,8 +381,8 @@
     "id": "f1-31",
     "floor": 1,
     "position": {
-      "x": 1013,
-      "y": 929
+      "x": 1022.5016177522344,
+      "y": 859.5647973473574
     },
     "width": 41,
     "height": 18,
@@ -448,30 +392,16 @@
     "highlightColor": null
   },
   {
-    "id": "f1-32",
-    "floor": 1,
-    "position": {
-      "x": 1010,
-      "y": 972
-    },
-    "width": 41,
-    "height": 18,
-    "fontSize": 11.5,
-    "rotation": 0,
-    "text": "ברשקה",
-    "highlightColor": null
-  },
-  {
     "id": "f1-33",
     "floor": 1,
     "position": {
-      "x": 1082,
-      "y": 590
+      "x": 1093.7407039489979,
+      "y": 665.8883619480088
     },
     "width": 32,
     "height": 16,
     "fontSize": 10.4,
-    "rotation": -90,
+    "rotation": 1,
     "text": "תמרה",
     "highlightColor": null
   },
@@ -479,13 +409,13 @@
     "id": "f1-34",
     "floor": 1,
     "position": {
-      "x": 1080,
-      "y": 658
+      "x": 1094.0812129428846,
+      "y": 703.460077455876
     },
-    "width": 62,
-    "height": 16,
-    "fontSize": 9.2,
-    "rotation": -90,
+    "width": 43.37385576418501,
+    "height": 23.736592328674888,
+    "fontSize": 9.3,
+    "rotation": 360,
     "text": "עולם הממתקים",
     "highlightColor": null
   },
@@ -493,13 +423,13 @@
     "id": "f1-35",
     "floor": 1,
     "position": {
-      "x": 1081,
-      "y": 445
+      "x": 1092.6943759823214,
+      "y": 404.0697509775035
     },
     "width": 66,
     "height": 16,
     "fontSize": 10.4,
-    "rotation": -90,
+    "rotation": 358,
     "text": "עמדת שירות",
     "highlightColor": null
   },
@@ -521,8 +451,8 @@
     "id": "f1-37",
     "floor": 1,
     "position": {
-      "x": 874,
-      "y": 471
+      "x": 910.1958203085378,
+      "y": 435.59099836786635
     },
     "width": 78,
     "height": 18,
@@ -535,50 +465,50 @@
     "id": "f1-38",
     "floor": 1,
     "position": {
-      "x": 930,
-      "y": 220
+      "x": 976.0464506879997,
+      "y": 297.47504850044754
     },
     "width": 38,
     "height": 16,
     "fontSize": 10.4,
-    "rotation": -58,
-    "text": "רודלר",
+    "rotation": 26,
+    "text": "רולדין",
     "highlightColor": null
   },
   {
     "id": "f1-39",
     "floor": 1,
     "position": {
-      "x": 853,
-      "y": 176
+      "x": 915.1262762148666,
+      "y": 192.0797586112384
     },
     "width": 41,
     "height": 18,
     "fontSize": 11.5,
     "rotation": -60,
-    "text": "פרטנר",
+    "text": "ריקושט",
     "highlightColor": null
   },
   {
     "id": "f1-40",
     "floor": 1,
     "position": {
-      "x": 884,
-      "y": 194
+      "x": 875.9601206943807,
+      "y": 171.70762715040064
     },
-    "width": 41,
-    "height": 18,
-    "fontSize": 11.5,
+    "width": 71.57164309115589,
+    "height": 54.21785229365341,
+    "fontSize": 16.6,
     "rotation": -60,
-    "text": "סקאלה",
+    "text": "סקארה סגור זמנית",
     "highlightColor": null
   },
   {
     "id": "f1-41",
     "floor": 1,
     "position": {
-      "x": 863,
-      "y": 316
+      "x": 885.6578325546138,
+      "y": 329.8870338389657
     },
     "width": 29,
     "height": 18,
@@ -591,69 +521,69 @@
     "id": "f1-42",
     "floor": 1,
     "position": {
-      "x": 918,
-      "y": 325
+      "x": 863.1827171385378,
+      "y": 305.2657781698736
     },
     "width": 41,
     "height": 18,
     "fontSize": 11.5,
     "rotation": -60,
-    "text": "חולצת",
+    "text": "דלתא",
     "highlightColor": null
   },
   {
     "id": "f1-43",
     "floor": 1,
     "position": {
-      "x": 1015,
-      "y": 274
+      "x": 987.2259323220687,
+      "y": 211.14287129073287
     },
     "width": 29,
     "height": 18,
     "fontSize": 11.5,
     "rotation": -60,
-    "text": "מאק",
+    "text": "באג",
     "highlightColor": null
   },
   {
     "id": "f1-44",
     "floor": 1,
     "position": {
-      "x": 992,
-      "y": 266
+      "x": 934.2591064140503,
+      "y": 196.5647973473574
     },
     "width": 41,
     "height": 18,
     "fontSize": 11.5,
     "rotation": -60,
-    "text": "פפילה",
+    "text": "קרביץ",
     "highlightColor": null
   },
   {
     "id": "f1-45",
     "floor": 1,
     "position": {
-      "x": 1039,
-      "y": 290
+      "x": 1084.3011089886108,
+      "y": 244.73387631050883
     },
     "width": 47,
     "height": 18,
     "fontSize": 11.5,
-    "rotation": -60,
-    "text": "גטפלון",
+    "rotation": 4,
+    "text": "גנטלמן",
     "highlightColor": null
   },
   {
     "id": "f1-46",
     "floor": 1,
     "position": {
-      "x": 1445,
-      "y": 117
+      "x": 1409.1391986752576,
+      "y": 177.64662707849087
     },
     "width": 41,
     "height": 18,
     "fontSize": 11.5,
-    "rotation": -34,
+    "rotation": 331,
     "text": "לחמים",
     "highlightColor": null
   },
@@ -661,27 +591,27 @@
     "id": "f1-47",
     "floor": 1,
     "position": {
-      "x": 1488,
-      "y": 240
+      "x": 1466.9523326572007,
+      "y": 156.91683569979716
     },
     "width": 63,
     "height": 16,
     "fontSize": 10.4,
     "rotation": -35,
-    "text": "צ'ינג' צ'יינג'",
+    "text": "ציינג",
     "highlightColor": null
   },
   {
     "id": "f1-48",
     "floor": 1,
     "position": {
-      "x": 1332,
-      "y": 170
+      "x": 1316.5331894936162,
+      "y": 231.29466316110856
     },
-    "width": 41,
-    "height": 18,
-    "fontSize": 11.5,
-    "rotation": -60,
+    "width": 31.306466211805628,
+    "height": 17.618262421326698,
+    "fontSize": 10.8,
+    "rotation": 331,
     "text": "שוגיז",
     "highlightColor": null
   },
@@ -689,55 +619,27 @@
     "id": "f1-49",
     "floor": 1,
     "position": {
-      "x": 1379,
-      "y": 157
+      "x": 1350.0199746049536,
+      "y": 215.81822942312945
     },
-    "width": 49,
-    "height": 16,
-    "fontSize": 10.4,
-    "rotation": -60,
-    "text": "מנגוליה",
-    "highlightColor": null
-  },
-  {
-    "id": "f1-50",
-    "floor": 1,
-    "position": {
-      "x": 1187,
-      "y": 336
-    },
-    "width": 47,
-    "height": 18,
-    "fontSize": 11.5,
-    "rotation": -32,
-    "text": "ריאלטו",
-    "highlightColor": null
-  },
-  {
-    "id": "f1-51",
-    "floor": 1,
-    "position": {
-      "x": 1120,
-      "y": 432
-    },
-    "width": 43,
-    "height": 16,
-    "fontSize": 10.4,
-    "rotation": -90,
-    "text": "סאקסוס",
+    "width": 39.05473148368812,
+    "height": 15.481722571753103,
+    "fontSize": 9.8,
+    "rotation": 332,
+    "text": "מגנוליה",
     "highlightColor": null
   },
   {
     "id": "f2-0",
     "floor": 2,
     "position": {
-      "x": 324,
-      "y": 234
+      "x": 304.74779367635125,
+      "y": 232.79674226861363
     },
-    "width": 72,
-    "height": 18,
-    "fontSize": 11.5,
-    "rotation": -87,
+    "width": 54.163812509242646,
+    "height": 30.345797112920415,
+    "fontSize": 12.1,
+    "rotation": 359,
     "text": "אופטיקה לוזון",
     "highlightColor": null
   },
@@ -770,53 +672,25 @@
     "highlightColor": null
   },
   {
-    "id": "f2-3",
-    "floor": 2,
-    "position": {
-      "x": 448,
-      "y": 371
-    },
-    "width": 70,
-    "height": 16,
-    "fontSize": 10.4,
-    "rotation": -60,
-    "text": "וינטאג' אוריג'נאלס",
-    "highlightColor": null
-  },
-  {
-    "id": "f2-4",
-    "floor": 2,
-    "position": {
-      "x": 315,
-      "y": 422
-    },
-    "width": 43,
-    "height": 16,
-    "fontSize": 10.4,
-    "rotation": 0,
-    "text": "גינג'י",
-    "highlightColor": null
-  },
-  {
     "id": "f2-5",
     "floor": 2,
     "position": {
-      "x": 366,
-      "y": 461
+      "x": 351.31980368668513,
+      "y": 443.9322944717245
     },
-    "width": 38,
-    "height": 16,
-    "fontSize": 10.4,
+    "width": 41.00815121358817,
+    "height": 16.601621980570958,
+    "fontSize": 10.7,
     "rotation": 0,
-    "text": "איסרפ",
+    "text": "אימפרס",
     "highlightColor": null
   },
   {
     "id": "f2-6",
     "floor": 2,
     "position": {
-      "x": 366,
-      "y": 486
+      "x": 358.21410052209126,
+      "y": 471.62604016883085
     },
     "width": 60,
     "height": 16,
@@ -829,8 +703,8 @@
     "id": "f2-7",
     "floor": 2,
     "position": {
-      "x": 365,
-      "y": 510
+      "x": 361.40651004220774,
+      "y": 492.6314560652864
     },
     "width": 71,
     "height": 16,
@@ -843,22 +717,22 @@
     "id": "f2-8",
     "floor": 2,
     "position": {
-      "x": 370,
-      "y": 527
+      "x": 367.6097815438386,
+      "y": 513.8645943938548
     },
     "width": 41,
     "height": 18,
     "fontSize": 11.5,
     "rotation": 0,
-    "text": "קייוי",
+    "text": "קיווי",
     "highlightColor": null
   },
   {
     "id": "f2-9",
     "floor": 2,
     "position": {
-      "x": 370,
-      "y": 554
+      "x": 374.19242322819275,
+      "y": 536.0325502110386
     },
     "width": 35,
     "height": 18,
@@ -871,22 +745,22 @@
     "id": "f2-10",
     "floor": 2,
     "position": {
-      "x": 374,
-      "y": 576
+      "x": 379.69646453371195,
+      "y": 566.4200853775945
     },
-    "width": 60,
-    "height": 16,
-    "fontSize": 10.4,
+    "width": 63.008137443343706,
+    "height": 17.20324396114191,
+    "fontSize": 10.7,
     "rotation": 0,
-    "text": "אי דיגיטל",
+    "text": "איי דיגיטל",
     "highlightColor": null
   },
   {
     "id": "f2-11",
     "floor": 2,
     "position": {
-      "x": 378,
-      "y": 606
+      "x": 373.1869415339656,
+      "y": 596.9755325889911
     },
     "width": 47,
     "height": 18,
@@ -899,8 +773,8 @@
     "id": "f2-12",
     "floor": 2,
     "position": {
-      "x": 380,
-      "y": 639
+      "x": 371.61520837591974,
+      "y": 624.0271068984304
     },
     "width": 53,
     "height": 18,
@@ -913,28 +787,14 @@
     "id": "f2-13",
     "floor": 2,
     "position": {
-      "x": 380,
-      "y": 665
+      "x": 376.40651004220774,
+      "y": 658.4119259386632
     },
     "width": 41,
     "height": 18,
     "fontSize": 11.5,
     "rotation": 0,
     "text": "פמינה",
-    "highlightColor": null
-  },
-  {
-    "id": "f2-14",
-    "floor": 2,
-    "position": {
-      "x": 390,
-      "y": 692
-    },
-    "width": 35,
-    "height": 18,
-    "fontSize": 11.5,
-    "rotation": 0,
-    "text": "טאוס",
     "highlightColor": null
   },
   {
@@ -948,19 +808,19 @@
     "height": 18,
     "fontSize": 12.6,
     "rotation": 0,
-    "text": "סטרדיוס",
+    "text": "סטדיווריוס",
     "highlightColor": null
   },
   {
     "id": "f2-16",
     "floor": 2,
     "position": {
-      "x": 245,
-      "y": 789
+      "x": 238.38205493688602,
+      "y": 783.2845223333536
     },
-    "width": 60,
-    "height": 16,
-    "fontSize": 10.4,
+    "width": 46.76410987377203,
+    "height": 27.430955333292793,
+    "fontSize": 11.1,
     "rotation": 0,
     "text": "פליינג טייגר",
     "highlightColor": null
@@ -983,8 +843,8 @@
     "id": "f2-18",
     "floor": 2,
     "position": {
-      "x": 309,
-      "y": 936
+      "x": 301.1788040906219,
+      "y": 913.7396286925186
     },
     "width": 40,
     "height": 18,
@@ -997,12 +857,12 @@
     "id": "f2-19",
     "floor": 2,
     "position": {
-      "x": 235,
-      "y": 572
+      "x": 234.69918212459228,
+      "y": 568.0893882750664
     },
-    "width": 65,
-    "height": 16,
-    "fontSize": 10.4,
+    "width": 54.77227485760466,
+    "height": 28.634254375412556,
+    "fontSize": 11.4,
     "rotation": 0,
     "text": "באת' אנד בודי",
     "highlightColor": null
@@ -1011,27 +871,27 @@
     "id": "f2-20",
     "floor": 2,
     "position": {
-      "x": 237,
-      "y": 666
+      "x": 226.63375400781038,
+      "y": 666.329498415821
     },
-    "width": 78,
-    "height": 18,
-    "fontSize": 11.5,
+    "width": 60.55270092879748,
+    "height": 31.837498336554468,
+    "fontSize": 12.3,
     "rotation": 0,
-    "text": "זארה טרוויז",
+    "text": "אדר סטוריז",
     "highlightColor": null
   },
   {
     "id": "f2-21",
     "floor": 2,
     "position": {
-      "x": 157,
-      "y": 533
+      "x": 188.84837086504686,
+      "y": 534.3860540292525
     },
     "width": 40,
     "height": 18,
     "fontSize": 13.8,
-    "rotation": -26,
+    "rotation": 1,
     "text": "נייק",
     "highlightColor": null
   },
@@ -1039,11 +899,11 @@
     "id": "f2-22",
     "floor": 2,
     "position": {
-      "x": 477,
-      "y": 390
+      "x": 484.21957392880716,
+      "y": 385.18696907445445
     },
-    "width": 62,
-    "height": 18,
+    "width": 43.95106517798206,
+    "height": 25.219573928807176,
     "fontSize": 11.5,
     "rotation": 0,
     "text": "פסטה בסטה",
@@ -1067,12 +927,12 @@
     "id": "f2-24",
     "floor": 2,
     "position": {
-      "x": 535,
-      "y": 413
+      "x": 542.5204124595816,
+      "y": 419.91874916827726
     },
-    "width": 49,
-    "height": 18,
-    "fontSize": 11.5,
+    "width": 43.5852920129057,
+    "height": 24.617924407747296,
+    "fontSize": 12.1,
     "rotation": 0,
     "text": "קפה קפה",
     "highlightColor": null
@@ -1081,13 +941,13 @@
     "id": "f2-25",
     "floor": 2,
     "position": {
-      "x": 412,
-      "y": 433
+      "x": 426.4391340873699,
+      "y": 422.4714638673192
     },
-    "width": 56,
-    "height": 16,
-    "fontSize": 10.4,
-    "rotation": -70,
+    "width": 51.18694153396557,
+    "height": 37.05707226536165,
+    "fontSize": 12.2,
+    "rotation": 360,
     "text": "קפה לנדוור",
     "highlightColor": null
   },
@@ -1109,13 +969,13 @@
     "id": "f2-27",
     "floor": 2,
     "position": {
-      "x": 465,
-      "y": 467
+      "x": 436.12170428477134,
+      "y": 465.7967560388581
     },
     "width": 53,
     "height": 16,
     "fontSize": 10.4,
-    "rotation": -88,
+    "rotation": 359,
     "text": "גו נודלס",
     "highlightColor": null
   },
@@ -1123,50 +983,50 @@
     "id": "f2-28",
     "floor": 2,
     "position": {
-      "x": 556,
-      "y": 497
+      "x": 554.7967284983691,
+      "y": 477.7478212168401
     },
     "width": 53,
     "height": 16,
     "fontSize": 10.4,
-    "rotation": -55,
-    "text": "בורגר בר",
+    "rotation": 359,
+    "text": "בורגרס בר",
     "highlightColor": null
   },
   {
     "id": "f2-29",
     "floor": 2,
     "position": {
-      "x": 420,
-      "y": 515
+      "x": 433.17614812267345,
+      "y": 500.027134314583
     },
     "width": 43,
     "height": 16,
     "fontSize": 10.4,
-    "rotation": -50,
-    "text": "דלמונה",
+    "rotation": 1,
+    "text": "זלמנס",
     "highlightColor": null
   },
   {
     "id": "f2-30",
     "floor": 2,
     "position": {
-      "x": 552,
-      "y": 547
+      "x": 542.3738830679312,
+      "y": 514.5119035501233
     },
-    "width": 55,
-    "height": 16,
+    "width": 33.61947472406307,
+    "height": 26.08662987859673,
     "fontSize": 10.4,
-    "rotation": -50,
-    "text": "גאסק ביף",
+    "rotation": 359,
+    "text": "גאסט ביף",
     "highlightColor": null
   },
   {
     "id": "f2-31",
     "floor": 2,
     "position": {
-      "x": 491,
-      "y": 540
+      "x": 493.40651546277275,
+      "y": 531.577154569562
     },
     "width": 49,
     "height": 16,
@@ -1179,22 +1039,22 @@
     "id": "f2-32",
     "floor": 2,
     "position": {
-      "x": 449,
-      "y": 556
+      "x": 443.8861167734357,
+      "y": 528.0241234853833
     },
-    "width": 49,
-    "height": 16,
-    "fontSize": 10.4,
-    "rotation": -50,
-    "text": "מר גריל",
+    "width": 36.05849270033448,
+    "height": 24.578040830381866,
+    "fontSize": 10.7,
+    "rotation": 2,
+    "text": "מר גרין",
     "highlightColor": null
   },
   {
     "id": "f2-33",
     "floor": 2,
     "position": {
-      "x": 624,
-      "y": 133
+      "x": 367.6513083913498,
+      "y": 156.39459449144871
     },
     "width": 47,
     "height": 18,
@@ -1207,13 +1067,13 @@
     "id": "f2-34",
     "floor": 2,
     "position": {
-      "x": 699,
-      "y": 145
+      "x": 705.0435527848927,
+      "y": 119.96284761626131
     },
     "width": 57,
     "height": 18,
     "fontSize": 12.6,
-    "rotation": 0,
+    "rotation": 55,
     "text": "לוק איט",
     "highlightColor": null
   },
@@ -1221,13 +1081,13 @@
     "id": "f2-35",
     "floor": 2,
     "position": {
-      "x": 483,
-      "y": 306
+      "x": 534.2377164043689,
+      "y": 313.7015618947959
     },
     "width": 65,
     "height": 16,
     "fontSize": 10.4,
-    "rotation": -52,
+    "rotation": 61,
     "text": "סוויט טיים",
     "highlightColor": null
   },
@@ -1235,28 +1095,980 @@
     "id": "f2-36",
     "floor": 2,
     "position": {
-      "x": 537,
-      "y": 317
+      "x": 572.2467064514655,
+      "y": 298.341268074835
+    },
+    "width": 95.24359261798523,
+    "height": 42.584558289078906,
+    "fontSize": 14.9,
+    "rotation": 62,
+    "text": "טימברלנד- שיפוצים",
+    "highlightColor": null
+  },
+  {
+    "id": "891d79c4-6f0b-4c5d-8256-cac1f3d0aa24",
+    "floor": 1,
+    "position": {
+      "x": 1399.7065922920892,
+      "y": 86.54571501014198
     },
     "width": 49,
     "height": 16,
     "fontSize": 10.4,
-    "rotation": -51,
-    "text": "טמברלנד",
+    "rotation": 332,
+    "text": "ברשקה",
     "highlightColor": null
   },
   {
-    "id": "f2-37",
+    "id": "cc375f5d-078f-4c9b-b962-8d8c7c2eb541",
     "floor": 2,
     "position": {
-      "x": 395,
-      "y": 254
+      "x": 149.27043610547668,
+      "y": 63.28245436105476
     },
-    "width": 60,
+    "width": 96.87387839052019,
+    "height": 45.99920206551963,
+    "fontSize": 15.2,
+    "rotation": 359,
+    "text": "קומה 2",
+    "highlightColor": null
+  },
+  {
+    "id": "22ebf0b1-2e80-4b5c-9694-939ce54fe2e5",
+    "floor": 2,
+    "position": {
+      "x": 931.0189148073023,
+      "y": 57.4025354969574
+    },
+    "width": 96.87387839052019,
+    "height": 45.99920206551963,
+    "fontSize": 15.2,
+    "rotation": 359,
+    "text": "קומה 1",
+    "highlightColor": null
+  },
+  {
+    "id": "fcb91b40-fbf1-45fb-a367-41f95de21620",
+    "floor": 1,
+    "position": {
+      "x": 1627.6371742861604,
+      "y": 264.180228678597
+    },
+    "width": 29.67053427899633,
+    "height": 35.68740959312355,
+    "fontSize": 11.1,
+    "rotation": 332,
+    "text": "טי לאב",
+    "highlightColor": null
+  },
+  {
+    "id": "716d11d5-1d86-4080-b85d-c7d133fc088f",
+    "floor": 1,
+    "position": {
+      "x": 1285.374340609235,
+      "y": 246.62691443483277
+    },
+    "width": 37.91882057095242,
+    "height": 30.770146360922276,
+    "fontSize": 12.7,
+    "rotation": 334,
+    "text": "תומר ואסף",
+    "highlightColor": null
+  },
+  {
+    "id": "b13a16d7-44fa-45d0-978d-3e6de7e6cbc7",
+    "floor": 1,
+    "position": {
+      "x": 1182.3582113144096,
+      "y": 308.50435724588124
+    },
+    "width": 54.18231989122108,
+    "height": 14.481697156887398,
+    "fontSize": 11.7,
+    "rotation": 328,
+    "text": "מנימליסט",
+    "highlightColor": null
+  },
+  {
+    "id": "29cd93a4-91b9-4b58-9408-6fe6f65d0bcb",
+    "floor": 1,
+    "position": {
+      "x": 1218.2413161435686,
+      "y": 286.8050008557864
+    },
+    "width": 25.949548950915606,
+    "height": 17.108600065341022,
+    "fontSize": 10.3,
+    "rotation": 328,
+    "text": "פינוק",
+    "highlightColor": null
+  },
+  {
+    "id": "a6f75b04-2467-4ab6-a6ce-4cec590aa710",
+    "floor": 1,
+    "position": {
+      "x": 1249.4542088172452,
+      "y": 266.54571509091994
+    },
+    "width": 41,
+    "height": 18,
+    "fontSize": 11.5,
+    "rotation": 328,
+    "text": "דינמיקה",
+    "highlightColor": null
+  },
+  {
+    "id": "2711dab3-81c4-4379-9c37-f7e21a53f312",
+    "floor": 1,
+    "position": {
+      "x": 1291.1816568522877,
+      "y": 186.32645444389658
+    },
+    "width": 49,
     "height": 16,
     "fontSize": 10.4,
+    "rotation": 63,
+    "text": "ארי",
+    "highlightColor": null
+  },
+  {
+    "id": "6af60b29-c7c2-40c2-9b36-0a8198806bef",
+    "floor": 1,
+    "position": {
+      "x": 1329.9192480181398,
+      "y": 157.82146735593625
+    },
+    "width": 49,
+    "height": 16,
+    "fontSize": 10.4,
+    "rotation": 64,
+    "text": "אופליין",
+    "highlightColor": null
+  },
+  {
+    "id": "1afa2e38-2c00-4848-9b3a-00998db32dc5",
+    "floor": 1,
+    "position": {
+      "x": 1225.9029926947317,
+      "y": 212.56799345469463
+    },
+    "width": 51.355816290370015,
+    "height": 12,
+    "fontSize": 9.8,
+    "rotation": 59,
+    "text": "ואנס",
+    "highlightColor": null
+  },
+  {
+    "id": "d69592d8-4efc-4225-9a3b-ee4336b8b35c",
+    "floor": 1,
+    "position": {
+      "x": 1253.5537628851866,
+      "y": 207.90122596717464
+    },
+    "width": 49,
+    "height": 16,
+    "fontSize": 10.4,
+    "rotation": 65,
+    "text": "מאניה",
+    "highlightColor": null
+  },
+  {
+    "id": "c7756829-62f0-41ca-a30d-2c49f158695f",
+    "floor": 1,
+    "position": {
+      "x": 1176.5807227453092,
+      "y": 245.83710750247988
+    },
+    "width": 51.355816290370015,
+    "height": 12,
+    "fontSize": 9.8,
+    "rotation": 59,
+    "text": "ללין",
+    "highlightColor": null
+  },
+  {
+    "id": "59f23af0-f8bc-4a82-80c5-8059aacedf8d",
+    "floor": 1,
+    "position": {
+      "x": 1197.0458639854646,
+      "y": 229.7573488912415
+    },
+    "width": 51.355816290370015,
+    "height": 12,
+    "fontSize": 9.8,
+    "rotation": 59,
+    "text": "רנואר",
+    "highlightColor": null
+  },
+  {
+    "id": "5503ae6b-a220-4b15-bc51-5ab875470ef6",
+    "floor": 1,
+    "position": {
+      "x": 1011.5082895080577,
+      "y": 318.3189173426037
+    },
+    "width": 38.769784108407805,
+    "height": 27.760226723778445,
+    "fontSize": 11.8,
+    "rotation": 26,
+    "text": "מפעל הפייס",
+    "highlightColor": null
+  },
+  {
+    "id": "21f8791d-953b-4a83-8275-3b635a0b0ec1",
+    "floor": 1,
+    "position": {
+      "x": 925.9932613285482,
+      "y": 263.50161775223444
+    },
+    "width": 38,
+    "height": 16,
+    "fontSize": 10.4,
+    "rotation": 26,
+    "text": "פרטנר",
+    "highlightColor": null
+  },
+  {
+    "id": "e90a17d9-4e6c-4797-b64c-94320abf1006",
+    "floor": 1,
+    "position": {
+      "x": 850.3586956056239,
+      "y": 222.9501130606459
+    },
+    "width": 38,
+    "height": 16,
+    "fontSize": 10.4,
+    "rotation": 26,
+    "text": "רכבת",
+    "highlightColor": null
+  },
+  {
+    "id": "124f9c83-03db-4b9e-a576-9443bbcf7c9c",
+    "floor": 1,
+    "position": {
+      "x": 808.7075295371338,
+      "y": 288.61942362093663
+    },
+    "width": 80.27156170318045,
+    "height": 45.293221158189255,
+    "fontSize": 16.3,
     "rotation": -60,
-    "text": "סטמוטולוג",
+    "text": " הפנינג- סגור זמנית",
+    "highlightColor": null
+  },
+  {
+    "id": "0b714a92-fdcb-4db9-adbf-646c88833a39",
+    "floor": 1,
+    "position": {
+      "x": 964.2391500323336,
+      "y": 199.8671189449386
+    },
+    "width": 77.64792054941798,
+    "height": 13.855956039796823,
+    "fontSize": 12.5,
+    "rotation": -60,
+    "text": "צומת ספרים",
+    "highlightColor": null
+  },
+  {
+    "id": "a8655056-92a4-475d-88e7-7a7a6c2ec1cf",
+    "floor": 1,
+    "position": {
+      "x": 1012.4551670642347,
+      "y": 219.56149492726001
+    },
+    "width": 29,
+    "height": 18,
+    "fontSize": 11.5,
+    "rotation": -60,
+    "text": "פרפל",
+    "highlightColor": null
+  },
+  {
+    "id": "0d50cf09-eb76-46fc-88ae-c660214a3c91",
+    "floor": 1,
+    "position": {
+      "x": 1037.6844018064007,
+      "y": 241.86715240275282
+    },
+    "width": 29,
+    "height": 18,
+    "fontSize": 11.5,
+    "rotation": -60,
+    "text": "מאק",
+    "highlightColor": null
+  },
+  {
+    "id": "21404394-0929-4636-a6f5-6ce8613798c9",
+    "floor": 1,
+    "position": {
+      "x": 945.4956407558024,
+      "y": 354.16799460340417
+    },
+    "width": 86.11832752037297,
+    "height": 14.754045466910103,
+    "fontSize": 14,
+    "rotation": -60,
+    "text": "קרולינה למקה",
+    "highlightColor": null
+  },
+  {
+    "id": "a3da6e10-7318-4d9a-836d-f40a34262a3f",
+    "floor": 1,
+    "position": {
+      "x": 916.7342887457548,
+      "y": 344.1528120088393
+    },
+    "width": 43.31716901035873,
+    "height": 19.51423162700989,
+    "fontSize": 12.8,
+    "rotation": -60,
+    "text": "אירוקה",
+    "highlightColor": null
+  },
+  {
+    "id": "0d4eb7ff-423f-4981-af41-ed9dc854b66c",
+    "floor": 1,
+    "position": {
+      "x": 973.4956407558024,
+      "y": 370.41394913649407
+    },
+    "width": 81.34818084532992,
+    "height": 12,
+    "fontSize": 13.2,
+    "rotation": -60,
+    "text": "איב רושה",
+    "highlightColor": null
+  },
+  {
+    "id": "a277379f-993e-48bb-a6be-fd1dbc05136f",
+    "floor": 1,
+    "position": {
+      "x": 1139.6943759823214,
+      "y": 438.0697509775035
+    },
+    "width": 66,
+    "height": 16,
+    "fontSize": 10.4,
+    "rotation": 358,
+    "text": "פנדורה",
+    "highlightColor": null
+  },
+  {
+    "id": "4fc22973-0aa0-4cbc-917f-97b1157425e5",
+    "floor": 1,
+    "position": {
+      "x": 1148.7034108036255,
+      "y": 480.3325217030302
+    },
+    "width": 54.91192624710959,
+    "height": 35.72340108845026,
+    "fontSize": 11.9,
+    "rotation": 358,
+    "text": "סאן גלאסס האט",
+    "highlightColor": null
+  },
+  {
+    "id": "a740efd0-1745-446c-81e8-7bc25392ac58",
+    "floor": 1,
+    "position": {
+      "x": 1397.1618262719523,
+      "y": 253.5689992398949
+    },
+    "width": 49,
+    "height": 16,
+    "fontSize": 10.4,
+    "rotation": 332,
+    "text": "סופר פארם",
+    "highlightColor": null
+  },
+  {
+    "id": "2389e4b7-f892-4a7b-85eb-18184d862918",
+    "floor": 1,
+    "position": {
+      "x": 1310.141877920111,
+      "y": 305.648724393319
+    },
+    "width": 49,
+    "height": 16,
+    "fontSize": 10.4,
+    "rotation": 332,
+    "text": "אושיו",
+    "highlightColor": null
+  },
+  {
+    "id": "14aae649-a623-41dc-97e8-1be101d7cbb9",
+    "floor": 1,
+    "position": {
+      "x": 1249.1683802562695,
+      "y": 323.3829462234454
+    },
+    "width": 49,
+    "height": 16,
+    "fontSize": 10.4,
+    "rotation": 332,
+    "text": "רויאלטי",
+    "highlightColor": null
+  },
+  {
+    "id": "feaf27dc-bdad-41a2-9275-4db4ed765b17",
+    "floor": 1,
+    "position": {
+      "x": 1188.4524273946386,
+      "y": 364.25002456354065
+    },
+    "width": 40.72431566929614,
+    "height": 33.93215152130041,
+    "fontSize": 13.2,
+    "rotation": 328,
+    "text": "אס וור",
+    "highlightColor": null
+  },
+  {
+    "id": "4e7330c7-c905-4c7c-b682-cc52bafa38aa",
+    "floor": 2,
+    "position": {
+      "x": 661.4198245090801,
+      "y": 182.59039739575525
+    },
+    "width": 33.47602491820834,
+    "height": 24.825722657150113,
+    "fontSize": 10.5,
+    "rotation": 357,
+    "text": "אושי אושי",
+    "highlightColor": null
+  },
+  {
+    "id": "4f992185-587f-4b81-bc16-e495aae00963",
+    "floor": 2,
+    "position": {
+      "x": 630.9335849004082,
+      "y": 81.29896832160614
+    },
+    "width": 49,
+    "height": 16,
+    "fontSize": 10.4,
+    "rotation": 62,
+    "text": "שילב",
+    "highlightColor": null
+  },
+  {
+    "id": "7159752c-b6cc-4ed3-ad79-d71256988e17",
+    "floor": 2,
+    "position": {
+      "x": 572.109663740937,
+      "y": 121.14613958385974
+    },
+    "width": 49,
+    "height": 16,
+    "fontSize": 10.4,
+    "rotation": 62,
+    "text": "טאו טאטו",
+    "highlightColor": null
+  },
+  {
+    "id": "ed0eaeed-d294-45f4-90fb-c84c320375fb",
+    "floor": 2,
+    "position": {
+      "x": 523.1395354128213,
+      "y": 156.96010329631739
+    },
+    "width": 49,
+    "height": 16,
+    "fontSize": 10.4,
+    "rotation": 62,
+    "text": "סינבון",
+    "highlightColor": null
+  },
+  {
+    "id": "0cd3c3ea-bbd5-4b1a-b6d0-41c4a318d806",
+    "floor": 2,
+    "position": {
+      "x": 471.8474517986033,
+      "y": 184.73418770315584
+    },
+    "width": 49,
+    "height": 16,
+    "fontSize": 10.4,
+    "rotation": 62,
+    "text": "מובי סל",
+    "highlightColor": null
+  },
+  {
+    "id": "dfdf62be-86d0-409b-aad6-4b88e4cb6f1d",
+    "floor": 2,
+    "position": {
+      "x": 494.63454832486093,
+      "y": 167.19265718748795
+    },
+    "width": 49,
+    "height": 16,
+    "fontSize": 10.4,
+    "rotation": 62,
+    "text": "הלד",
+    "highlightColor": null
+  },
+  {
+    "id": "0b638ce6-6b09-4c84-97af-8e6c31ce160c",
+    "floor": 2,
+    "position": {
+      "x": 445.31227837543844,
+      "y": 199.7308518252442
+    },
+    "width": 49,
+    "height": 16,
+    "fontSize": 10.4,
+    "rotation": 62,
+    "text": "וי שוז",
+    "highlightColor": null
+  },
+  {
+    "id": "8e6b4248-cd6b-44ab-8d3b-4ae88a1a2afd",
+    "floor": 2,
+    "position": {
+      "x": 364.2261338976251,
+      "y": 266.7173194148081
+    },
+    "width": 49,
+    "height": 16,
+    "fontSize": 10.4,
+    "rotation": 60,
+    "text": "סמסונג",
+    "highlightColor": null
+  },
+  {
+    "id": "8c95052e-d63f-40b0-a1f7-53db630371e2",
+    "floor": 1,
+    "position": {
+      "x": 1089.729099961977,
+      "y": 461.9048752702122
+    },
+    "width": 46.472540240329764,
+    "height": 30.676281077611215,
+    "fontSize": 11.1,
+    "rotation": 358,
+    "text": "בובי בראון",
+    "highlightColor": null
+  },
+  {
+    "id": "88fa5cb4-cf6a-45a6-b239-e1fab3f3ff0a",
+    "floor": 1,
+    "position": {
+      "x": 1091.1356210641468,
+      "y": 540.4690489875375
+    },
+    "width": 46.472540240329764,
+    "height": 30.676281077611215,
+    "fontSize": 11.1,
+    "rotation": 358,
+    "text": "און קלאוד",
+    "highlightColor": null
+  },
+  {
+    "id": "0572b224-2f90-4a0a-a8dd-1320b5da9ff8",
+    "floor": 1,
+    "position": {
+      "x": 1091.2557902237086,
+      "y": 583.7073238179536
+    },
+    "width": 35.19348169912256,
+    "height": 18.580936929888328,
+    "fontSize": 9.4,
+    "rotation": 358,
+    "text": "פלאפון ",
+    "highlightColor": null
+  },
+  {
+    "id": "67ca6383-3c18-4393-aa7b-10fc7e5a3c4d",
+    "floor": 1,
+    "position": {
+      "x": 1139.8057997687968,
+      "y": 845.0627692618016
+    },
+    "width": 43.37385576418501,
+    "height": 23.736592328674888,
+    "fontSize": 9.3,
+    "rotation": 0,
+    "text": "סקארה",
+    "highlightColor": null
+  },
+  {
+    "id": "bde049d3-26c3-4243-9dc9-90c48bffcd48",
+    "floor": 2,
+    "position": {
+      "x": 641.1661555204857,
+      "y": 253.0598102593971
+    },
+    "width": 42.024018379951734,
+    "height": 24.67594824880012,
+    "fontSize": 11.1,
+    "rotation": 62,
+    "text": "פול אנד בר",
+    "highlightColor": null
+  },
+  {
+    "id": "c3eb6321-faa2-45a2-b40d-de37217e8237",
+    "floor": 2,
+    "position": {
+      "x": 600.6985676342265,
+      "y": 274.0069060077269
+    },
+    "width": 49,
+    "height": 16,
+    "fontSize": 10.4,
+    "rotation": 62,
+    "text": "ארומה",
+    "highlightColor": null
+  },
+  {
+    "id": "de085598-90c5-4c2d-bddd-aa60fec03f97",
+    "floor": 1,
+    "position": {
+      "x": 986.4784718647913,
+      "y": 498.70667324923056
+    },
+    "width": 70,
+    "height": 18,
+    "fontSize": 13.8,
+    "rotation": -28,
+    "text": "פוקס ",
+    "highlightColor": null
+  },
+  {
+    "id": "209b3d89-c4f9-4732-af87-05f13b2487f5",
+    "floor": 1,
+    "position": {
+      "x": 1092.2088468302536,
+      "y": 889.1198244076955
+    },
+    "width": 43.37385576418501,
+    "height": 23.736592328674888,
+    "fontSize": 9.3,
+    "rotation": 0,
+    "text": "ספורה",
+    "highlightColor": null
+  },
+  {
+    "id": "96f8f09f-2805-499f-8585-774142a8cae4",
+    "floor": 1,
+    "position": {
+      "x": 1382.3454933473677,
+      "y": 194.9564210566456
+    },
+    "width": 38.489829731361766,
+    "height": 15.4558517523262,
+    "fontSize": 9.8,
+    "rotation": 332,
+    "text": "טי לאב",
+    "highlightColor": null
+  },
+  {
+    "id": "2a99742f-bf52-4e51-9a51-d8da8650ae44",
+    "floor": 1,
+    "position": {
+      "x": 1140.790563952368,
+      "y": 328.5185111990894
+    },
+    "width": 43.04268171750528,
+    "height": 25.300067226088608,
+    "fontSize": 11.2,
+    "rotation": 332,
+    "text": "בלאק אנד וויט",
+    "highlightColor": null
+  },
+  {
+    "id": "a5fc19b0-76cc-431a-b3c3-d1b78c994ff4",
+    "floor": 1,
+    "position": {
+      "x": 1303.2569359722936,
+      "y": 385.8776737860852
+    },
+    "width": 39.211436485463466,
+    "height": 36.04893482201794,
+    "fontSize": 15.1,
+    "rotation": 0,
+    "text": "וניליה גלידה",
+    "highlightColor": null
+  },
+  {
+    "id": "3f3c3172-dde2-4eaf-aade-10853a53573a",
+    "floor": 1,
+    "position": {
+      "x": 1345.86133297729,
+      "y": 418.02653712115034
+    },
+    "width": 34.057461715409936,
+    "height": 22.41332813444011,
+    "fontSize": 10.8,
+    "rotation": 359,
+    "text": "....",
+    "highlightColor": null
+  },
+  {
+    "id": "62750edc-d995-4782-a582-0d17ac6414f5",
+    "floor": 1,
+    "position": {
+      "x": 1266.754665579148,
+      "y": 544.0761047134417
+    },
+    "width": 34.057461715409936,
+    "height": 22.41332813444011,
+    "fontSize": 10.8,
+    "rotation": 359,
+    "text": "....",
+    "highlightColor": null
+  },
+  {
+    "id": "60dd55d1-e68a-413f-8515-58e4d25d4bf3",
+    "floor": 1,
+    "position": {
+      "x": 1211.4046171519522,
+      "y": 481.20564382666447
+    },
+    "width": 44.895672995830004,
+    "height": 22.000796191575166,
+    "fontSize": 11.4,
+    "rotation": 359,
+    "text": "ברוסטר",
+    "highlightColor": null
+  },
+  {
+    "id": "7d9344c9-7511-450b-b5e0-c874e9745e36",
+    "floor": 1,
+    "position": {
+      "x": 1091.6799840353297,
+      "y": 499.5554034092123
+    },
+    "width": 43.70311252654575,
+    "height": 21.37823880199844,
+    "fontSize": 11.3,
+    "rotation": 359,
+    "text": "ליאנידס",
+    "highlightColor": null
+  },
+  {
+    "id": "3b285649-2871-491a-868b-6e77dc59e0d9",
+    "floor": 1,
+    "position": {
+      "x": 1091.6745380124385,
+      "y": 622.8898097199941
+    },
+    "width": 36.35863923530716,
+    "height": 28.4707142162179,
+    "fontSize": 11.5,
+    "rotation": 360,
+    "text": "עדה לזורגן",
+    "highlightColor": null
+  },
+  {
+    "id": "d1b9c6cc-0ff1-47ae-9531-9d6a3c62852d",
+    "floor": 1,
+    "position": {
+      "x": 1091.9516054644341,
+      "y": 753.1952101593099
+    },
+    "width": 31.966282586577925,
+    "height": 40.5015139828644,
+    "fontSize": 12.1,
+    "rotation": 359,
+    "text": "איי אנ גי",
+    "highlightColor": null
+  },
+  {
+    "id": "ae7fdb2d-fab8-41b1-a6db-955f30446981",
+    "floor": 1,
+    "position": {
+      "x": 1093.1840114462682,
+      "y": 805.7856183219683
+    },
+    "width": 44.05261746386154,
+    "height": 34.70662601008008,
+    "fontSize": 12.5,
+    "rotation": 359,
+    "text": "קרולינה למקה",
+    "highlightColor": null
+  },
+  {
+    "id": "8fa9d838-c1dd-4ac2-95d9-aa9bbd2a80fb",
+    "floor": 1,
+    "position": {
+      "x": 1091.8850502361097,
+      "y": 851.3914562316681
+    },
+    "width": 34.057461715409936,
+    "height": 22.41332813444011,
+    "fontSize": 10.8,
+    "rotation": 359,
+    "text": "מובי סל",
+    "highlightColor": null
+  },
+  {
+    "id": "415f152f-3ccc-4138-847c-5f9845df4ea6",
+    "floor": 1,
+    "position": {
+      "x": 1090.4767125336987,
+      "y": 929.4209320147473
+    },
+    "width": 37.53020020193836,
+    "height": 30.296332307053213,
+    "fontSize": 11.8,
+    "rotation": 359,
+    "text": "פןפ סטיישן",
+    "highlightColor": null
+  },
+  {
+    "id": "9ff8bf9e-7c23-44ad-95d3-1ecfd362062d",
+    "floor": 1,
+    "position": {
+      "x": 1000.9273820867757,
+      "y": 417.5909712901849
+    },
+    "width": 34.057461715409936,
+    "height": 22.41332813444011,
+    "fontSize": 10.8,
+    "rotation": 359,
+    "text": "רד",
+    "highlightColor": null
+  },
+  {
+    "id": "44fe7486-655e-4fee-abbf-321a028dfd9d",
+    "floor": 1,
+    "position": {
+      "x": 1026.7038599867983,
+      "y": 453.83144437359664
+    },
+    "width": 53.34876285703376,
+    "height": 20.343177005851143,
+    "fontSize": 11.7,
+    "rotation": 359,
+    "text": "סמסונייט",
+    "highlightColor": null
+  },
+  {
+    "id": "c1adb96c-5f70-4326-be33-a7c0369ee3df",
+    "floor": 1,
+    "position": {
+      "x": 1132.1657553154973,
+      "y": 245.77998008017852
+    },
+    "width": 44.314236873060274,
+    "height": 18.161207813568684,
+    "fontSize": 11.4,
+    "rotation": 3,
+    "text": "גרמין",
+    "highlightColor": null
+  },
+  {
+    "id": "35d08848-10cf-481f-9fce-c5e62ec2074e",
+    "floor": 2,
+    "position": {
+      "x": 396.2756746030701,
+      "y": 237.89214881209477
+    },
+    "width": 49,
+    "height": 16,
+    "fontSize": 10.4,
+    "rotation": 62,
+    "text": "נאוטיקה",
+    "highlightColor": null
+  },
+  {
+    "id": "155ccbb3-7dab-4abe-929d-318e0fb954f9",
+    "floor": 2,
+    "position": {
+      "x": 423.34910437658596,
+      "y": 220.44486351113673
+    },
+    "width": 49,
+    "height": 16,
+    "fontSize": 10.4,
+    "rotation": 62,
+    "text": "פנטה ריי",
+    "highlightColor": null
+  },
+  {
+    "id": "1ab3a91b-ef70-4888-9b76-941429f62446",
+    "floor": 2,
+    "position": {
+      "x": 478.95043240770855,
+      "y": 332.34947073790005
+    },
+    "width": 49,
+    "height": 16,
+    "fontSize": 10.4,
+    "rotation": 62,
+    "text": "טבע נאות",
+    "highlightColor": null
+  },
+  {
+    "id": "b46b226e-f184-4cbe-b2a8-506274df17f6",
+    "floor": 2,
+    "position": {
+      "x": 506.31715334358626,
+      "y": 328.8401818151511
+    },
+    "width": 49,
+    "height": 16,
+    "fontSize": 10.4,
+    "rotation": 62,
+    "text": "אופטיקנה",
+    "highlightColor": null
+  },
+  {
+    "id": "10e0bbbc-8308-42a1-b445-56229398ce1a",
+    "floor": 2,
+    "position": {
+      "x": 443.1533462134692,
+      "y": 344.38207559225265
+    },
+    "width": 42.84058547759401,
+    "height": 28.352565821722607,
+    "fontSize": 11.4,
+    "rotation": 62,
+    "text": "הבורסה לתכשיט",
+    "highlightColor": null
+  },
+  {
+    "id": "e46e992d-14d4-447b-965f-3d3741f772d6",
+    "floor": 2,
+    "position": {
+      "x": 249.77201136884736,
+      "y": 448.513348163087
+    },
+    "width": 59.63425437541255,
+    "height": 34.845690860876026,
+    "fontSize": 14,
+    "rotation": 0,
+    "text": "איתי ברנדס",
+    "highlightColor": null
+  },
+  {
+    "id": "b232bcda-6b4c-4d7b-ad56-e590000115d9",
+    "floor": 2,
+    "position": {
+      "x": 341.0689077195088,
+      "y": 394.81544120710583
+    },
+    "width": 51.12474428477546,
+    "height": 35.64415369028414,
+    "fontSize": 17,
+    "rotation": 1,
+    "text": "שני יעקובי",
+    "highlightColor": null
+  },
+  {
+    "id": "fc29fc12-3b28-431c-b165-3349df50dce0",
+    "floor": 2,
+    "position": {
+      "x": 274.2878419929202,
+      "y": 394.2138054562906
+    },
+    "width": 53.40492230201964,
+    "height": 42.904600473320514,
+    "fontSize": 17.8,
+    "rotation": 1,
+    "text": "אן וואי איקס",
     "highlightColor": null
   }
 ]

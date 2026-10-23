@@ -4,10 +4,14 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react
 import { duplicateBox, IMG_H, IMG_W, seedBoxes, type Box } from "@/lib/mall-seed";
 import { Button } from "@/components/ui/button";
 import {
-  ChevronDown, ClipboardPaste, Copy, Minus, Plus, Save, Square, Trash2, Undo2, Redo2, ChevronUp, Maximize2,
+  ChevronDown, ClipboardPaste, Copy, Minus, Plus, Save, Square, Trash2, Undo2, Redo2, ChevronUp, Maximize2, LockKeyhole, LockOpen,
 } from "lucide-react";
 
-const KEY = "mall-map-aligned-v4";
+// Version 5 uses the newly published defaults. Version 4 remains untouched as a backup.
+const KEY = "mall-map-aligned-v5";
+const LEGACY_KEY = "mall-map-aligned-v4";
+// Convenience lock only: this code is public and does not provide real authentication.
+const EDIT_CODE = "1987";
 // One-time migration: retain saved positions and rotations while enlarging existing store labels.
 const FONT_MIGRATION_KEY = "mall-map-font-115-migration-v1";
 const enlargeFont = (value: number) => Math.round(value * 1.15 * 10) / 10;
@@ -28,6 +32,18 @@ function newBoxId(): string {
 export function MallEditor() {
   const [boxes, setBoxes] = useState<Box[]>([]);
   const [loaded, setLoaded] = useState(false);
+  const [unlocked, setUnlocked] = useState(false);
+  const toggleLock = () => {
+    if (unlocked) {
+      setEditing(null); setSel(null); setSelectedIds([]); setAlignmentGuides({});
+      setUnlocked(false);
+      return;
+    }
+    const entered = window.prompt("Enter editor code:");
+    if (entered === null) return;
+    if (entered === EDIT_CODE) setUnlocked(true);
+    else window.alert("Incorrect code");
+  };
   const [sel, setSel] = useState<string | null>(null);
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [alignmentGuides, setAlignmentGuides] = useState<{ x?: number; y?: number }>({});
@@ -93,29 +109,23 @@ export function MallEditor() {
   };
 
   useEffect(() => {
+    // Preserve the old browser map for recovery without silently overriding new defaults.
+    try {
+      const old = localStorage.getItem(LEGACY_KEY);
+      if (old && !localStorage.getItem("mall-map-v4-before-v5-backup")) {
+        localStorage.setItem("mall-map-v4-before-v5-backup", old);
+      }
+    } catch { /* storage may be unavailable */ }
+    let initial = defaultStores as Box[];
     try {
       const raw = localStorage.getItem(KEY);
       if (raw) {
         const stored = JSON.parse(raw) as Box[];
-        if (!Array.isArray(stored)) throw new Error("Invalid saved map data");
-        if (localStorage.getItem(FONT_MIGRATION_KEY) !== "done") {
-          const enlarged = stored.map((box) => ({ ...box, fontSize: enlargeFont(box.fontSize) }));
-          // Persist migration immediately, preventing the 15% change from being applied again on reload.
-          localStorage.setItem(KEY, JSON.stringify(enlarged));
-          localStorage.setItem(FONT_MIGRATION_KEY, "done");
-          setBoxes(enlarged);
-        } else {
-          setBoxes(stored);
-        }
-      } else {
-        // Fresh installations already get enlarged defaults from seedBoxes().
-        setBoxes(defaultStores as Box[]);
-        localStorage.setItem(FONT_MIGRATION_KEY, "done");
+        if (Array.isArray(stored)) initial = stored;
       }
-    } catch {
-      setBoxes(defaultStores as Box[]);
-    }
-    setSavedSnapshot(localStorage.getItem(KEY) ?? JSON.stringify(defaultStores));
+    } catch { /* fall back to published defaults */ }
+    setBoxes(initial);
+    setSavedSnapshot(JSON.stringify(initial));
     setLoaded(true);
   }, []);
 
@@ -164,10 +174,12 @@ export function MallEditor() {
     bumpHistory((n) => n + 1);
   }, []);
   const update = (id: string, fn: (b: Box) => Box, record = true) => {
+    if (!unlocked) return;
     if (record) snapshot();
     setBoxes((bs) => bs.map((b) => (b.id === id ? fn(b) : b)));
   };
   const undo = () => {
+    if (!unlocked) return;
     const prev = history.current.pop();
     if (!prev) return;
     future.current.push(boxesRef.current);
@@ -176,6 +188,7 @@ export function MallEditor() {
     bumpHistory((n) => n + 1);
   };
   const redo = () => {
+    if (!unlocked) return;
     const next = future.current.pop();
     if (!next) return;
     history.current.push(boxesRef.current);
@@ -185,6 +198,7 @@ export function MallEditor() {
     bumpHistory((n) => n + 1);
   };
   const addBox = () => {
+    if (!unlocked) return;
     snapshot();
     const id = newBoxId();
     setBoxes((bs) => [...bs, {
@@ -196,12 +210,14 @@ export function MallEditor() {
     setSel(id);
   };
   const del = () => {
+    if (!unlocked) return;
     if (!sel) return;
     snapshot();
     setBoxes((bs) => bs.filter((b) => b.id !== sel));
     setSel(null);
   };
   const save = () => {
+    if (!unlocked) return;
     const data = JSON.stringify(boxes);
     localStorage.setItem(KEY, data);
     setSavedSnapshot(data);
@@ -222,6 +238,7 @@ export function MallEditor() {
     setCopyStatus("Copied: " + copy.text);
   }, []);
   const pasteBox = useCallback(() => {
+    if (!unlocked) return;
     const source = clipboard.current ?? copiedBox;
     if (!source) { setCopyStatus("Copy a box first"); return; }
     try {
@@ -241,7 +258,7 @@ export function MallEditor() {
       console.error("Mall map paste failed:", error);
       setCopyStatus("Paste error: " + message);
     }
-  }, [snapshot, copiedBox]);
+  }, [snapshot, copiedBox, unlocked]);
 
   const exportBoxes = () => {
     const blob = new Blob([JSON.stringify(boxes, null, 2)], { type: "application/json" });
@@ -251,7 +268,8 @@ export function MallEditor() {
     URL.revokeObjectURL(url);
   };
   const importBoxes = async (file?: File) => {
-    if (!file) return;
+    if (!unlocked) return;
+    if (!file || !unlocked) return;
     try {
       const data = JSON.parse(await file.text());
       if (!Array.isArray(data) || !data.every((b) => b.id && b.position && typeof b.text === "string")) throw Error();
@@ -262,6 +280,7 @@ export function MallEditor() {
   // keyboard
   const keyRef = useRef<(e: KeyboardEvent) => void>(() => {});
   keyRef.current = (e) => {
+    if (!unlocked && !(e.ctrlKey || e.metaKey) && e.code !== "Space") return;
     const t = e.target as HTMLElement;
     const inField = editing || t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable;
     if ((e.ctrlKey || e.metaKey) && !e.altKey) {
@@ -277,7 +296,7 @@ export function MallEditor() {
         return;
       }
       const k = e.key.toLowerCase();
-      if (inField) return; // let the browser handle copy/paste/undo inside text fields
+      if (inField || !unlocked) return; // no editor shortcuts while locked
       if (k === "c" && selectedRef.current) { e.preventDefault(); copySelected(); return; }
       if (k === "v" && (clipboard.current || copiedBox)) { e.preventDefault(); pasteBox(); return; }
       if (k === "z") {
@@ -301,7 +320,7 @@ export function MallEditor() {
       }
       return;
     }
-    if (spaceHeldRef.current) return; // arrows must not move shops while panning
+    if (spaceHeldRef.current || !unlocked) return; // arrows must not move shops while locked/panning
     if (!sel) return;
     if (e.key === "Delete" || e.key === "Backspace") { e.preventDefault(); del(); return; }
     const step = e.shiftKey ? 10 : 1;
@@ -387,6 +406,7 @@ export function MallEditor() {
 
   // pointer drag helper
   const drag = (e: React.PointerEvent, onMove: (dx: number, dy: number, ev: PointerEvent) => void) => {
+    if (!unlocked) return;
     e.stopPropagation();
     e.preventDefault();
     const sx = e.clientX, sy = e.clientY;
@@ -471,6 +491,7 @@ export function MallEditor() {
 
 
   const startMove = (e: React.PointerEvent, b: Box) => {
+    if (!unlocked) return;
     if (editing === b.id) return;
 
     if (e.shiftKey) {
@@ -522,6 +543,7 @@ export function MallEditor() {
   };
 
   const startResize = (e: React.PointerEvent, b: Box, sxSign: number, sySign: number) => {
+    if (!unlocked) return;
     const rad = (b.rotation * Math.PI) / 180, cos = Math.cos(rad), sin = Math.sin(rad);
     const { width: w0, height: h0, position: p0 } = b;
     drag(e, (dx, dy) => {
@@ -536,6 +558,7 @@ export function MallEditor() {
     });
   };
   const startRotate = (e: React.PointerEvent, b: Box) => {
+    if (!unlocked) return;
     const el = (e.currentTarget as HTMLElement).parentElement;
     if (!el) return;
     const r = el.getBoundingClientRect();
@@ -552,10 +575,16 @@ export function MallEditor() {
 
   return (
     <div className="flex h-dvh w-screen flex-col overflow-hidden bg-background text-foreground">
-      {!mini && (
+      {(!mini || !unlocked) && (
         <header className="flex shrink-0 flex-wrap items-center justify-center gap-1.5 border-b border-border bg-card px-2 py-1.5">
           <h1 className="mr-1 text-sm font-bold">Mall Map Editor</h1>
-          <Sep />
+          <Button variant="outline" size="sm" className="h-7 gap-1" onClick={toggleLock}
+            title={unlocked ? "Lock editing" : "Unlock editing"}>
+            {unlocked ? <LockOpen size={14} /> : <LockKeyhole size={14} />}
+            {unlocked ? "Lock Editing" : "Unlock Editing"}
+          </Button>
+          {unlocked && <Sep />}
+          {unlocked && <div className="flex flex-wrap items-center justify-center gap-1.5">
           <Tb onClick={addBox} icon={<Square />} label="Add box" />
           <Tb onClick={copySelected} icon={<Copy />} label="Copy (Ctrl+C)" disabled={!sel} />
           <button type="button" onPointerDown={(e) => e.preventDefault()} onClick={pasteBox} disabled={!copiedBox}
@@ -570,7 +599,7 @@ export function MallEditor() {
           <label className="cursor-pointer rounded border px-2 py-1 text-xs">Import JSON<input type="file" accept=".json,application/json" className="hidden" onChange={(e) => { void importBoxes(e.target.files?.[0]); e.target.value = ""; }} /></label>
           <Tb onClick={del} icon={<Trash2 />} label="Delete" disabled={!sel} />
           <Tb onClick={() => { setMini(true); }} icon={<ChevronUp />} label="Minimize UI" />
-          {selected && (
+          {unlocked && selected && (
             <>
               <Sep />
               <label className="flex items-center gap-1 text-xs"><span className="sr-only">Text</span>
@@ -605,6 +634,7 @@ export function MallEditor() {
               </div>
             </>
           )}
+          </div>}
         </header>
       )}
 
@@ -657,8 +687,8 @@ export function MallEditor() {
                 const isSel = b.id === sel || selectedIds.includes(b.id);
                 return (
                   <div key={b.id}
-                    data-store-box onPointerDown={(e) => startMove(e, b)}
-                    onDoubleClick={() => { snapshot(); setEditing(b.id); }}
+                    data-store-box onPointerDown={(e) => { if (unlocked) startMove(e, b); }}
+                    onDoubleClick={() => { if (unlocked) { snapshot(); setEditing(b.id); } }}
                     style={{
                       position: "absolute",
                        left: b.position.x - b.width / 2, top: b.position.y - b.height / 2,
@@ -669,7 +699,8 @@ export function MallEditor() {
                       // A subtle selection frame sits outside the label; nothing crosses its text.
                       outline: isSel ? `${1.5 / s}px solid #0a5bd8` : "1px solid rgba(0,0,0,.45)",
                       outlineOffset: isSel ? 3 / s : 0,
-                      cursor: spaceHeld ? (panning ? "grabbing" : "grab") : editing === b.id ? "text" : "move",
+                      cursor: !unlocked ? "default" : spaceHeld ? (panning ? "grabbing" : "grab") : editing === b.id ? "text" : "move",
+                      pointerEvents: unlocked ? "auto" : "none",
                       zIndex: isSel ? 10 : 1,
                     }}
                     className="flex select-none items-center justify-center text-center font-semibold leading-tight text-black"
@@ -685,7 +716,7 @@ export function MallEditor() {
                     ) : (
                       <span dir="auto" className="pointer-events-none overflow-hidden px-0.5" style={{ whiteSpace: "pre-wrap" }}>{b.text}</span>
                     )}
-                    {isSel && selectedIds.length === 0 && !mini && editing !== b.id && (
+                    {unlocked && isSel && selectedIds.length === 0 && !mini && editing !== b.id && (
                       <>
                         {([[-1, -1], [1, -1], [-1, 1], [1, 1]] as [number, number][]).map(([hx, hy]) => (
                           // Only four corner resize grips. The visible square is 7 screen px;
@@ -748,7 +779,7 @@ export function MallEditor() {
             <Maximize2 size={14} />
           </Button>
         </div>
-        {mini && (
+        {mini && unlocked && (
           <Button variant="outline" size="icon" onPointerDown={(e) => e.stopPropagation()} onClick={() => setMini(false)} aria-label="Show UI" title="Show UI"
             className="fixed right-2 top-2 z-50 h-8 w-8 rounded-full">
             <ChevronDown size={16} />
