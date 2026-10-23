@@ -1,7 +1,7 @@
 import defaultStores from "../mall-stores-default.json";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 
-import { duplicateBox, FLOORS, IMG_H, IMG_W, seedBoxes, type Box } from "@/lib/mall-seed";
+import { duplicateBox, IMG_H, IMG_W, seedBoxes, type Box } from "@/lib/mall-seed";
 import { Button } from "@/components/ui/button";
 import {
   ChevronDown, ClipboardPaste, Copy, Minus, Plus, Save, Square, Trash2, Undo2, Redo2, ChevronUp, Maximize2,
@@ -28,13 +28,16 @@ function newBoxId(): string {
 export function MallEditor() {
   const [boxes, setBoxes] = useState<Box[]>([]);
   const [loaded, setLoaded] = useState(false);
-  const [targetFloor, setTargetFloor] = useState<1 | 2>(1);
   const [sel, setSel] = useState<string | null>(null);
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
+  const [alignmentGuides, setAlignmentGuides] = useState<{ x?: number; y?: number }>({});
   const [editing, setEditing] = useState<string | null>(null);
   const [fit, setFit] = useState(1);
   const [zoom, setZoom] = useState(1); // 1 = fit whole map in the available viewport
   const [mini, setMini] = useState(false);
   const [saved, setSaved] = useState<string | null>(null);
+  const [savedSnapshot, setSavedSnapshot] = useState<string | null>(null);
+  const hasUnsavedChanges = loaded && savedSnapshot !== null && JSON.stringify(boxes) !== savedSnapshot;
   const history = useRef<Box[][]>([]);
   const future = useRef<Box[][]>([]);
   const [, bumpHistory] = useState(0);
@@ -112,13 +115,14 @@ export function MallEditor() {
     } catch {
       setBoxes(defaultStores as Box[]);
     }
+    setSavedSnapshot(localStorage.getItem(KEY) ?? JSON.stringify(defaultStores));
     setLoaded(true);
   }, []);
 
   useLayoutEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
-    const calc = () => setFit(Math.max(0.01, Math.min((el.clientWidth - 16) / IMG_W, (el.clientHeight - 16) / IMG_H)));
+    const calc = () => setFit(Math.max(0.01, (el.clientWidth - 16) / IMG_W));
     calc();
     const ro = new ResizeObserver(calc);
     ro.observe(el);
@@ -185,8 +189,8 @@ export function MallEditor() {
     const id = newBoxId();
     setBoxes((bs) => [...bs, {
       id,
-      floor: targetFloor,
-      position: { x: FLOORS[targetFloor].x0 + FLOORS[targetFloor].w / 2, y: IMG_H / 2 },
+      floor: 1,
+      position: { x: IMG_W / 2, y: IMG_H / 2 },
       width: 80, height: 26, fontSize: 16.1, rotation: 0, text: "New", highlightColor: null,
     }]);
     setSel(id);
@@ -198,7 +202,9 @@ export function MallEditor() {
     setSel(null);
   };
   const save = () => {
-    localStorage.setItem(KEY, JSON.stringify(boxes));
+    const data = JSON.stringify(boxes);
+    localStorage.setItem(KEY, data);
+    setSavedSnapshot(data);
     setSaved("Saved");
     setTimeout(() => setSaved(null), 1500);
   };
@@ -206,8 +212,6 @@ export function MallEditor() {
   const [copiedBox, setCopiedBox] = useState<Box | null>(null);
   const selectedRef = useRef(sel);
   selectedRef.current = sel;
-  const floorRef = useRef(targetFloor);
-  floorRef.current = targetFloor;
   const [copyStatus, setCopyStatus] = useState("");
   const copySelected = useCallback(() => {
     const source = boxesRef.current.find((box) => box.id === selectedRef.current);
@@ -221,16 +225,11 @@ export function MallEditor() {
     const source = clipboard.current ?? copiedBox;
     if (!source) { setCopyStatus("Copy a box first"); return; }
     try {
-      const destinationFloor = floorRef.current;
-      const sourceFloor = FLOORS[source.floor];
-      const destFloor = FLOORS[destinationFloor];
-      if (!sourceFloor || !destFloor) throw new Error("Invalid floor configuration");
-      const dx = destFloor.x0 - sourceFloor.x0;
       // Clone all properties, including exact rotation; offset to make it visible.
       const clone: Box = {
         ...duplicateBox(source, newBoxId()),
-        floor: destinationFloor,
-        position: { x: source.position.x + dx + 34, y: source.position.y + 34 },
+        floor: source.floor,
+        position: { x: source.position.x + 34, y: source.position.y + 34 },
       };
       snapshot();
       setBoxes((current) => [...current, clone]);
@@ -360,7 +359,7 @@ export function MallEditor() {
   // Pan the scrollable map instead of moving shops when Space is held.
   // This capture-phase handler takes priority over shop drag/resize handlers.
   const startPan = (e: React.PointerEvent<HTMLDivElement>) => {
-    if (!spaceHeldRef.current || e.button !== 0) return;
+    if (e.button !== 0 || (!spaceHeldRef.current && e.target !== e.currentTarget && (e.target as HTMLElement).closest('[data-store-box]'))) return;
     e.preventDefault();
     e.stopPropagation();
     const viewport = wrapRef.current;
@@ -400,19 +399,128 @@ export function MallEditor() {
       if (!changed) { snapshot(); changed = true; }
       onMove(dx, dy, ev);
     };
-    const up = () => { window.removeEventListener("pointermove", move); window.removeEventListener("pointerup", up); };
+    const up = () => { window.removeEventListener("pointermove", move); window.removeEventListener("pointerup", up); setAlignmentGuides({}); };
     window.addEventListener("pointermove", move);
     window.addEventListener("pointerup", up);
   };
 
+
+  const findAlignment = (moving: Box[], others: Box[], dx: number, dy: number) => {
+    const tolerance = 7 / s;
+    let bestX = tolerance + 1;
+    let bestY = tolerance + 1;
+    let snapX = 0;
+    let snapY = 0;
+    let guideX: number | undefined;
+    let guideY: number | undefined;
+
+    for (const a of moving) {
+      if (a.rotation % 360 !== 0) continue;
+
+      const ax = [
+        a.position.x - a.width / 2 + dx,
+        a.position.x + dx,
+        a.position.x + a.width / 2 + dx,
+      ];
+      const ay = [
+        a.position.y - a.height / 2 + dy,
+        a.position.y + dy,
+        a.position.y + a.height / 2 + dy,
+      ];
+
+      for (const b of others) {
+        if (b.rotation % 360 !== 0) continue;
+
+        const bx = [
+          b.position.x - b.width / 2,
+          b.position.x,
+          b.position.x + b.width / 2,
+        ];
+        const by = [
+          b.position.y - b.height / 2,
+          b.position.y,
+          b.position.y + b.height / 2,
+        ];
+
+        for (const x of ax) {
+          for (const target of bx) {
+            const diff = target - x;
+            if (Math.abs(diff) < bestX && Math.abs(diff) <= tolerance) {
+              bestX = Math.abs(diff);
+              snapX = diff;
+              guideX = target;
+            }
+          }
+        }
+
+        for (const y of ay) {
+          for (const target of by) {
+            const diff = target - y;
+            if (Math.abs(diff) < bestY && Math.abs(diff) <= tolerance) {
+              bestY = Math.abs(diff);
+              snapY = diff;
+              guideY = target;
+            }
+          }
+        }
+      }
+    }
+
+    return { snapX, snapY, guideX, guideY };
+  };
+
+
   const startMove = (e: React.PointerEvent, b: Box) => {
     if (editing === b.id) return;
+
+    if (e.shiftKey) {
+      setSelectedIds((ids) =>
+        ids.includes(b.id)
+          ? ids.filter((id) => id !== b.id)
+          : [...ids, b.id]
+      );
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+
     selectedRef.current = b.id;
     setSel(b.id);
-    setTargetFloor(b.floor);
-    const o = b.position;
-    drag(e, (dx, dy) => update(b.id, (x) => ({ ...x, position: { x: o.x + dx, y: o.y + dy } }), false));
+
+    const ids = selectedIds.includes(b.id) ? selectedIds : [b.id];
+    const moving = boxesRef.current.filter((x) => ids.includes(x.id));
+    const others = boxesRef.current.filter((x) => !ids.includes(x.id));
+    const origins = new Map(moving.map((x) => [x.id, x.position]));
+
+    if (!selectedIds.includes(b.id)) setSelectedIds([]);
+
+    drag(e, (dx, dy) => {
+      const result = findAlignment(moving, others, dx, dy);
+      const finalDx = dx + result.snapX;
+      const finalDy = dy + result.snapY;
+
+      setAlignmentGuides({
+        x: result.guideX,
+        y: result.guideY,
+      });
+
+      setBoxes((prev) =>
+        prev.map((x) => {
+          const origin = origins.get(x.id);
+          return origin
+            ? {
+                ...x,
+                position: {
+                  x: origin.x + finalDx,
+                  y: origin.y + finalDy,
+                },
+              }
+            : x;
+        })
+      );
+    });
   };
+
   const startResize = (e: React.PointerEvent, b: Box, sxSign: number, sySign: number) => {
     const rad = (b.rotation * Math.PI) / 180, cos = Math.cos(rad), sin = Math.sin(rad);
     const { width: w0, height: h0, position: p0 } = b;
@@ -447,15 +555,6 @@ export function MallEditor() {
       {!mini && (
         <header className="flex shrink-0 flex-wrap items-center justify-center gap-1.5 border-b border-border bg-card px-2 py-1.5">
           <h1 className="mr-1 text-sm font-bold">Mall Map Editor</h1>
-          <span className="text-xs text-muted-foreground">Add to</span>
-          <div className="flex overflow-hidden rounded-md border border-border">
-            {([1, 2] as const).map((f) => (
-              <Button key={f} onClick={() => setTargetFloor(f)} variant={targetFloor === f ? "default" : "ghost"}
-                size="sm" className="h-7 rounded-none px-2 shadow-none" aria-pressed={targetFloor === f}>
-                Floor {f}
-              </Button>
-            ))}
-          </div>
           <Sep />
           <Tb onClick={addBox} icon={<Square />} label="Add box" />
           <Tb onClick={copySelected} icon={<Copy />} label="Copy (Ctrl+C)" disabled={!sel} />
@@ -466,10 +565,11 @@ export function MallEditor() {
           <Tb onClick={undo} icon={<Undo2 />} label="Undo (Ctrl+Z)" disabled={history.current.length === 0} />
           <Tb onClick={redo} icon={<Redo2 />} label="Redo (Ctrl+Y / Ctrl+Shift+Z)" disabled={future.current.length === 0} />
           <Tb onClick={save} icon={<Save />} label={saved ?? "Save"} />
+          {loaded && <span role="status" className={hasUnsavedChanges ? "text-xs font-medium text-amber-600" : "text-xs font-medium text-green-700"}>{hasUnsavedChanges ? "● Unsaved changes" : "✓ All changes saved"}</span>}
           <Button variant="outline" size="sm" className="h-7" onClick={exportBoxes}>Export JSON</Button>
           <label className="cursor-pointer rounded border px-2 py-1 text-xs">Import JSON<input type="file" accept=".json,application/json" className="hidden" onChange={(e) => { void importBoxes(e.target.files?.[0]); e.target.value = ""; }} /></label>
           <Tb onClick={del} icon={<Trash2 />} label="Delete" disabled={!sel} />
-          <Tb onClick={() => { setMini(true); setSel(null); }} icon={<ChevronUp />} label="Minimize UI" />
+          <Tb onClick={() => { setMini(true); }} icon={<ChevronUp />} label="Minimize UI" />
           {selected && (
             <>
               <Sep />
@@ -522,11 +622,42 @@ export function MallEditor() {
                 <img src={`${import.meta.env.BASE_URL}mall-map-clean.png`} alt="Mall map" draggable={false}
                   style={{ position: "absolute", left: 0, top: 0, width: IMG_W, height: IMG_H, maxWidth: "none", userSelect: "none", pointerEvents: "none" }} />
               )}
+
+              {alignmentGuides.x !== undefined && (
+                <div
+                  aria-hidden="true"
+                  style={{
+                    position: "absolute",
+                    left: alignmentGuides.x,
+                    top: 0,
+                    width: 0,
+                    height: IMG_H,
+                    borderLeft: `${1 / s}px dashed #ec4899`,
+                    pointerEvents: "none",
+                    zIndex: 20,
+                  }}
+                />
+              )}
+              {alignmentGuides.y !== undefined && (
+                <div
+                  aria-hidden="true"
+                  style={{
+                    position: "absolute",
+                    left: 0,
+                    top: alignmentGuides.y,
+                    width: IMG_W,
+                    height: 0,
+                    borderTop: `${1 / s}px dashed #ec4899`,
+                    pointerEvents: "none",
+                    zIndex: 20,
+                  }}
+                />
+              )}
               {boxes.map((b) => {
-                const isSel = b.id === sel;
+                const isSel = b.id === sel || selectedIds.includes(b.id);
                 return (
                   <div key={b.id}
-                    onPointerDown={(e) => startMove(e, b)}
+                    data-store-box onPointerDown={(e) => startMove(e, b)}
                     onDoubleClick={() => { snapshot(); setEditing(b.id); }}
                     style={{
                       position: "absolute",
@@ -554,7 +685,7 @@ export function MallEditor() {
                     ) : (
                       <span dir="auto" className="pointer-events-none overflow-hidden px-0.5" style={{ whiteSpace: "pre-wrap" }}>{b.text}</span>
                     )}
-                    {isSel && !mini && editing !== b.id && (
+                    {isSel && selectedIds.length === 0 && !mini && editing !== b.id && (
                       <>
                         {([[-1, -1], [1, -1], [-1, 1], [1, 1]] as [number, number][]).map(([hx, hy]) => (
                           // Only four corner resize grips. The visible square is 7 screen px;
