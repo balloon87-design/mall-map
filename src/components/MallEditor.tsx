@@ -64,6 +64,33 @@ export function MallEditor() {
   const boxesRef = useRef(boxes);
   boxesRef.current = boxes;
   const wrapRef = useRef<HTMLDivElement>(null);
+  // mall-search-feature-v1
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeSearchId, setActiveSearchId] = useState<string | null>(null);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const searchTerm = searchQuery.trim().toLocaleLowerCase();
+  const searchMatches = searchTerm
+    ? boxes.filter((b) => b.text.toLocaleLowerCase().includes(searchTerm))
+    : [];
+
+  const goToSearchResult = (b: Box) => {
+    setActiveSearchId(b.id);
+    setSearchOpen(false);
+    const el = wrapRef.current;
+    if (!el) return;
+    const scale = fit * zoom;
+    const contentWidth = Math.max(el.clientWidth, IMG_W * scale + 16);
+    const contentHeight = Math.max(el.clientHeight, IMG_H * scale + 16);
+    el.scrollTo({
+      left: (contentWidth - IMG_W * scale) / 2
+        + b.position.x * scale - el.clientWidth / 2,
+      top: (contentHeight - IMG_H * scale) / 2
+        + b.position.y * scale - el.clientHeight / 2,
+      behavior: "smooth",
+    });
+  };
+
   const zoomToolbarRef = useRef<HTMLDivElement>(null);
   const [zoomToolbarPosition, setZoomToolbarPosition] = useState<{ x: number; y: number } | null>(() => {
     try {
@@ -280,6 +307,20 @@ export function MallEditor() {
   // keyboard
   const keyRef = useRef<(e: KeyboardEvent) => void>(() => {});
   keyRef.current = (e) => {
+    if ((e.ctrlKey || e.metaKey) && !e.altKey &&
+        e.key.toLowerCase() === "f") {
+      const target = e.target as HTMLElement;
+      const typing = target.tagName === "INPUT" ||
+        target.tagName === "TEXTAREA" || target.isContentEditable;
+      if (!typing && !editing) {
+        e.preventDefault();
+        e.stopPropagation();
+        setSearchOpen(true);
+        searchInputRef.current?.focus();
+        searchInputRef.current?.select();
+      }
+      return;
+    }
     if (!unlocked && !(e.ctrlKey || e.metaKey) && e.code !== "Space") return;
     const t = e.target as HTMLElement;
     const inField = editing || t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable;
@@ -578,6 +619,56 @@ export function MallEditor() {
       {(!mini || !unlocked) && (
         <header className="flex shrink-0 flex-wrap items-center justify-center gap-1.5 border-b border-border bg-card px-2 py-1.5">
           <h1 className="mr-1 text-sm font-bold">Mall Map Editor</h1>
+          <div className="relative w-56 max-w-[80vw]">
+            <div className="flex h-7 items-center rounded-md border border-input bg-background px-2">
+              <span aria-hidden="true" className="mr-1 text-sm">⌕</span>
+              <input
+                ref={searchInputRef}
+                type="search"
+                dir="auto"
+                aria-label="Search stores"
+                placeholder="חיפוש חנות..."
+                value={searchQuery}
+                onFocus={() => setSearchOpen(true)}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  setActiveSearchId(null);
+                  setSearchOpen(true);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Escape") {
+                    setSearchOpen(false);
+                    searchInputRef.current?.blur();
+                  }
+                  if (e.key === "Enter" && searchMatches.length > 0) {
+                    goToSearchResult(searchMatches[0]);
+                  }
+                }}
+                className="min-w-0 flex-1 bg-transparent text-sm outline-none"
+              />
+            </div>
+            {searchOpen && searchTerm && (
+              <div
+                dir="rtl"
+                className="absolute left-0 right-0 top-full z-50 mt-1 max-h-64 overflow-y-auto rounded-md border border-border bg-card shadow-lg"
+              >
+                {searchMatches.length === 0 ? (
+                  <div className="px-3 py-2 text-sm">לא נמצאו חנויות</div>
+                ) : (
+                  searchMatches.map((b) => (
+                    <button
+                      key={b.id}
+                      type="button"
+                      onClick={() => goToSearchResult(b)}
+                      className="block w-full border-b border-border px-3 py-2 text-right text-sm hover:bg-muted"
+                    >
+                      {b.text}
+                    </button>
+                  ))
+                )}
+              </div>
+            )}
+          </div>
           <Button variant="outline" size="sm" className="h-7 gap-1" onClick={toggleLock}
             title={unlocked ? "Lock editing" : "Unlock editing"}>
             {unlocked ? <LockOpen size={14} /> : <LockKeyhole size={14} />}
@@ -685,6 +776,7 @@ export function MallEditor() {
               )}
               {boxes.map((b) => {
                 const isSel = b.id === sel || selectedIds.includes(b.id);
+                const isSearchResult = b.id === activeSearchId;
                 return (
                   <div key={b.id}
                     data-store-box onPointerDown={(e) => { if (unlocked) startMove(e, b); }}
@@ -697,11 +789,15 @@ export function MallEditor() {
                       background: b.highlightColor ?? "#ffffff",
                       fontSize: b.fontSize,
                       // A subtle selection frame sits outside the label; nothing crosses its text.
-                      outline: isSel ? `${1.5 / s}px solid #0a5bd8` : "1px solid rgba(0,0,0,.45)",
-                      outlineOffset: isSel ? 3 / s : 0,
+                      outline: isSearchResult
+                         ? `${4 / s}px solid #2563eb`
+                         : isSel
+                           ? `${1.5 / s}px solid #0a5bd8`
+                           : "1px solid rgba(0,0,0,.45)",
+                      outlineOffset: isSearchResult ? 5 / s : isSel ? 3 / s : 0,
                       cursor: !unlocked ? "default" : spaceHeld ? (panning ? "grabbing" : "grab") : editing === b.id ? "text" : "move",
                       pointerEvents: unlocked ? "auto" : "none",
-                      zIndex: isSel ? 10 : 1,
+                      zIndex: isSearchResult ? 15 : isSel ? 10 : 1,
                     }}
                     className="flex select-none items-center justify-center text-center font-semibold leading-tight text-black"
                   >
